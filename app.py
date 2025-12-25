@@ -209,5 +209,5 @@ def download_all_reviews():
     except Exception as e:
         return render_template('detailRV.html', error=f"Lỗi tải file tổng hợp: {e}")
     
-    if __name__ == '__main__':
-        app.run()
+if __name__ == '__main__':
+    app.run()
