@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles_reviewCSV.css') }}">
+
+        <title>Review Page</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td colspan="2" style="width: 100%; background-color: white;">
+                    <h3>NGƯỜI DÙNG GỬI ĐÁNH GIÁ</h3>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width: 100%; background-color: white;">
+                    <a href="{{ url_for('home') }}" class="button">Home Page</a>
+                    <a href="{{ url_for('detailCSV') }}" class="button">DetailCSV Page</a>
+                    <a href="{{ url_for('review') }}" class="button">Review Comment Page</a> 
+                    <a href="{{ url_for('analysis_word') }}" class="button">Analysis Word Page</a> 
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">                                       
+                    <!-- Upload file CSV -->
+                    <form method="POST" action="/upload" enctype="multipart/form-data">
+                        <h3>TẢI LÊN FILE ĐÁNH GIÁ (CSV)<br>.........</h3>
+                        <label for="file">Chọn file CSV:</label>
+                        <input type="file" name="file" id="file" accept=".csv" required>
+                        <input type="submit" value="Phân tích file CSV">
+                    </form>
+
+                    {% if result_ready %}
+                    <div style="margin-top: 20px;">
+                        <a href="{{ url_for('download_result') }}" class="button">Tải file kết quả</a>
+                    </div>
+                    {% endif %}
+                    
+                    <br />
+
+                    {% if error %}
+                        <h4>{{ error }}</h4>
+                    {% endif %}
+                </td>
+                <td style="width: 50%;">
+                    <form>
+                        <h3>THỐNG KÊ KẾT QUẢ ĐÁNH GIÁ<br>.........</h3>
+                        <img src="/static/sentiment_plt.png" style="width: 100%;">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles_home.css') }}">
+        
+        <title>Home Page</title>
+    </head>
+    <body>    
+        <table>
+            <tr>
+                <td class="text_title" colspan="2" style="width: 100%; background-color: white";">
+                    CHƯƠNG TRÌNH PHÂN TÍCH CẢM XÚC TRONG TIẾNG VIỆT
+                    <br>SỬ DỤNG THUẬT TOÁN LONG SHORT-TERM MEMORY
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width: 100%; background-color: white;">
+                    <a href="{{ url_for('review') }}" class="button">Review Comment Page</a>
+                    <a href="{{ url_for('reviewCSV') }}" class="button">Review CSV Page</a>
+                    <a href="{{ url_for('detailCSV') }}" class="button">Detail CSV Page</a>
+                    <a href="{{ url_for('analysis_word') }}" class="button">Analysis Word Page</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30%; background-color: white;" >
+                    <table border="1">
+                        <tr>
+                            <td colspan="3">
+                                <h3>Thông tin UIT-VSFC</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>Số lượng dòng</h3>
+                            </td>
+                            <td>
+                                <h3>Số lượng Positive</h3>
+                            </td>
+                            <td>
+                                <h3>Số lượng Negative</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>14876</h4>
+                            </td>
+                            <td>
+                                <h4>7438</h4>
+                            </td>
+                            <td>
+                                <h4>7438</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="background-color: white;">
+                                <h4>Nguồn tập dữ liệu: <a href="https://nlp.uit.edu.vn/datasets/">https://nlp.uit.edu.vn/datasets/</a>  </h4>                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <h3>Kết quả huấn luyện</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h3>Accuraccy</h3>
+                            </td>
+                            <td>
+                                <h4>95.43%</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h3>Thời gian huấn luyện</h3>
+                            </td>
+                            <td>
+                                <h4>05 phút 67 giây</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h3>Thời gian dự đoán</h3>
+                            </td>
+                            <td>
+                                <h4>26,83  giây</h4>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <h3>BIỂU ĐỒ HUẤN LUYỆN MÔ HÌNH<br>.........</h3>
+                    <br>
+                    <img src="/static/train_val_overview.png" style="width: 100%;">
+                    <br><br>
+                    <img src="/static/loss_accuracy_comparison.png" style="width: 100%;">
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

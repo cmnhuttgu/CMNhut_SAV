@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles_analysis_word.css') }}">
+
+        <title>Analysis Word Page</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td colspan="2" style="width: 100%; background-color: white;">
+                    <h3>NGƯỜI DÙNG GỬI ĐÁNH GIÁ</h3>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width: 100%; background-color: white;">
+                    <a href="{{ url_for('home') }}" class="button">Home Page</a>
+                    <a href="{{ url_for('detailRV') }}" class="button">Detail Comment Page</a>
+                    <a href="{{ url_for('reviewCSV') }}" class="button">Review CSV Page</a>
+                    <a href="{{ url_for('detailCSV') }}" class="button">Detail CSV Page</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">
+                    <!-- Gửi 1 review -->
+                    <form method="POST" action="/analysis_word" enctype="multipart/form-data">
+                        <h3>NHẬP MỘT TỪ KHÓA<br>.........</h3>
+                        <label for="analysis_word">Nhập một từ khóa: </label>
+                        <input type="text" name="analysis_word" id="analysis_word" placeholder="Vui lòng nhập vào một từ khóa" required>
+                        <br>
+                        <input type="submit" value="Gửi đánh giá">
+                    </form>
+                    <br />
+
+                    {% if error %}
+                        <h4>{{ error }}</h4>
+                    {% endif %}
+                </td>
+                <td style="width: 50%;">
+                    <h3>BIỂU ĐỒ PHÂN TÍCH TỪ KHÓA<br>.........</h3>
+                    <br>
+                    <img src="/static/word_occurrence.png" style="width: 100%;">
+                    <br><br>
+                    <img src="/static/wordcloud.png" style="width: 100%;">
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

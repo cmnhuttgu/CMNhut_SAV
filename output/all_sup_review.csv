@@ -1,0 +1,25 @@
+﻿review_vi,sentiment,ghi chú
+anh_ấy không chấp nhận ý kiến sai về phía mình. anh_ấy học giỏi giàu có không có đẹp không nhanh a. tôi không thích anh_ấy. anh_ấy hay xem thường những người khác trong nhóm.,negative,output/review_1.csv
+anh_ấy không chấp nhận ý kiến sai về phía mình,negative,output/sup_review.csv_1.csv
+anh_ấy học giỏi,positive,output/sup_review.csv_1.csv
+anh_ấy giàu_có,negative,output/sup_review.csv_1.csv
+anh_ấy không có đẹp,negative,output/sup_review.csv_1.csv
+anh_ấy không nhanh,negative,output/sup_review.csv_1.csv
+tôi không thích anh_ấy,negative,output/sup_review.csv_1.csv
+anh_ấy hay xem thường những người khác trong nhóm,positive,output/sup_review.csv_1.csv
+"anh_ấy không chấp nhận những ý kiến ​​​​sai trái về phía mình. anh_ấy học giỏi, giàu có, không đẹp trai, không nhanh nhẹn. tôi không thích anh ta. anh_ấy thường coi thường những người khác trong nhóm.",negative,output/review_2.csv
+anh_ấy không chấp nhận những ý kiến ​​​​sai trái về phía mình,negative,output/sup_review.csv_2.csv
+anh_ấy học giỏi,positive,output/sup_review.csv_2.csv
+anh_ấy giàu có,negative,output/sup_review.csv_2.csv
+anh_ấy không đẹp trai,negative,output/sup_review.csv_2.csv
+anh_ấy không nhanh nhẹn,negative,output/sup_review.csv_2.csv
+tôi không thích anh ta,negative,output/sup_review.csv_2.csv
+anh_ấy thường coi thường những người khác trong nhóm,negative,output/sup_review.csv_2.csv
+"anh_ấy không chấp nhận những ý kiến ​​​​sai trái về phía mình. anh_ấy học giỏi, giàu có, không đẹp trai, không nhanh nhẹn. tôi không thích anh ta. anh_ấy thường coi thường những người khác trong nhóm.",negative,output/review_3.csv
+anh_ấy không chấp nhận những ý kiến ​​​​sai trái về phía mình,negative,output/sup_review.csv_3.csv
+anh_ấy học giỏi,positive,output/sup_review.csv_3.csv
+anh_ấy giàu có,negative,output/sup_review.csv_3.csv
+anh_ấy không đẹp trai,negative,output/sup_review.csv_3.csv
+anh_ấy không nhanh nhẹn,negative,output/sup_review.csv_3.csv
+tôi không thích anh ta,negative,output/sup_review.csv_3.csv
+anh_ấy thường coi thường những người khác trong nhóm,negative,output/sup_review.csv_3.csv

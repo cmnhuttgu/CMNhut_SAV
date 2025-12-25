@@ -1,0 +1,11 @@
+flask
+gunicorn
+pandas
+numpy
+deep-translator
+joblib
+pyvi
+keras
+tensorflow
+emoji
+matplotlib

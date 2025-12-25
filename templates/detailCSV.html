@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles_detailCSV.css') }}">
+        
+        <title>Detail CSV Page</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td colspan="2" style="width: 100%; background-color: white;">
+                    <h3>CHI TIẾT ĐÁNH GIÁ CỦA NGƯỜI DÙNG</h3>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width: 100%; background-color: white;">
+                    <a href="{{ url_for('home') }}" class="button">Home Page</a>
+                    <a href="{{ url_for('review') }}" class="button">Review Comment Page</a>
+                    <a href="{{ url_for('reviewCSV') }}" class="button">Review CSV Page</a>
+                    <a href="{{ url_for('analysis_word') }}" class="button">Analysis Word Page</a>
+                </td>
+            </tr>
+            
+            <!--
+            Hiển thị nội dung có trong tất cả các file review
+            -->
+            <tr>
+                <td colspan="2">
+                    <a id="showButton" class="button" onclick="showContent()">Hiển thị tất cả đánh giá của người dùng</a>
+                    <a id="hideButton" class="button" onclick="hideContent()" style="display: none;">Ẩn nội dung đánh giá</a>
+
+                    <!-- ✅ Panel ẩn/hiện nội dung đánh giá -->
+                    <div id="panel" style="display: none; margin-top: 10px;">
+                        <!-- ✅ Nút tải file tổng hợp nằm trong panel -->
+                        <div style="margin-top: 20px; text-align: center;">
+                            <a href="{{ url_for('download_all_reviews') }}" class="button">Tải file tổng hợp (all_reviews.csv)</a>
+                        </div>
+                        
+                        <div>
+                            {% if error %}
+                                <h4>{{ error }}</h4>
+                            {% endif %}
+                        </div> 
+
+                        <div>
+                            {% if table_all_review %}
+                                <div id="table_all_review">{{ table_all_review|safe }}</div>
+                            {% endif %}
+                        </div>
+
+                        
+                    </div>
+
+                    <!-- ✅ JavaScript ẩn/hiện panel -->
+                    <script>
+                        function showContent() {
+                            var panel = document.getElementById("panel");
+                            var showButton = document.getElementById("showButton");
+                            var hideButton = document.getElementById("hideButton");
+                            if (panel.style.display === "none") {
+                                panel.style.display = "block"; // Hiện panel nếu nó đang ẩn
+                                hideButton.style.display = "inline-block"; // Hiện button 2
+                                showButton.style.display = "none"; // Ẩn button 1
+                            }
+                        }
+
+                        function hideContent() {
+                            var panel = document.getElementById("panel");
+                            var showButton = document.getElementById("showButton");
+                            var hideButton = document.getElementById("hideButton");
+                            if (panel.style.display === "block") {
+                                panel.style.display = "none"; // Ẩn panel nếu nó đang hiện
+                                hideButton.style.display = "none"; // Ẩn button 2
+                                showButton.style.display = "inline-block"; // Hiện button 1
+                            }
+                        }
+                    </script>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
