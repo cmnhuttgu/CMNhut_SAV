@@ -11,7 +11,7 @@ from utils_to_csv import save_review_to_csv, save_review_csv_to_csv, save_all_re
 
 from flask import Flask, render_template, send_from_directory, request
 
-model = load_model('model/Mcolab_LSTM_model_94.45.h5')
+model = load_model('model/colab_LSTM_model_94.45.h5')
 
 app = Flask(__name__)
 
