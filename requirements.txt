@@ -5,7 +5,8 @@ numpy
 deep-translator
 joblib
 pyvi
-keras
-tensorflow
+tensorflow-cpu==2.13.0
+keras==2.13.1
 emoji
 matplotlib
+wordcloud
