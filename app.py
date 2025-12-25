@@ -6,7 +6,7 @@ from keras.models import load_model
 
 from utils_pre_process import pre_process_review, translate_csv
 from utils_split_simple_sentences import split_sentences
-from utils_predict import process_X_token_review, predict_score, predict_sentiment, plot_sentiment_pie
+from utils_predict import process_X_token_review, predict_score, predict_sentiment, plot_sentiment_pie, generate_wordcloud, plot_word_occurrences
 from utils_to_csv import save_review_to_csv, save_review_csv_to_csv, save_all_reviews_to_csv, save_sup_review_to_csv, save_all_reviews_and_sup_review_to_csv
 
 from flask import Flask, render_template, send_from_directory, request
@@ -209,5 +209,42 @@ def download_all_reviews():
     except Exception as e:
         return render_template('detailRV.html', error=f"Lỗi tải file tổng hợp: {e}")
     
+@app.route('/analysis_word', methods=['POST', 'GET'])
+def analysis_word():
+    
+    # Ghi nhận và đánh giá 01 review
+    if request.method == 'POST':
+        new_review = request.form['analysis_word']
+        features = str(new_review)
+
+        # Kiểm tra chuỗi không rỗng
+        if features.strip():
+            # Dự đoán cảm xúc review
+            new_review = translate_csv(new_review, "vi", "en")
+            new_review = translate_csv(new_review, "en", "vi")
+            new_review = pre_process_review(new_review)
+            token_new_review = ViTokenizer.tokenize(new_review)
+            token_new_review = "_".join(token_new_review.strip().split())
+
+            generate_wordcloud(
+                X_token='input/My_review_token.joblib',
+                sentiment='input/My_sentiment.joblib',
+                save_dir='static/',
+                dpi=300
+            )
+            plot_word_occurrences(
+                token_new_review,
+                X_token='input/My_review_token.joblib',
+                sentiment='input/My_sentiment.joblib',
+                save_dir='static/',   # thư mục lưu ảnh
+                dpi=300                     # chất lượng ảnh
+            )
+            error = 'Cảm ơn bạn đã đánh giá!'
+            return render_template('analysis_word.html', error=error)
+        else:
+            error = 'Chuỗi rỗng, vui lòng nhập lại!'
+            return render_template('analysis_word.html', error=error)
+    return render_template('analysis_word.html')
+
 if __name__ == '__main__':
     app.run()
